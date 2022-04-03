@@ -1,2 +1,13 @@
 # .dotfiles
-Repository to share, edit and maintain my custom dotfiles
+Personal Transferrable Configuration Files
+
+## Managed Configurations
+
+### Vim
+
+### NeoVim
+
+### ZSH
+
+### GIT
+

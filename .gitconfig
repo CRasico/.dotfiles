@@ -1,0 +1,5 @@
+[user]
+	name = Cameron Rasico
+	email = rasicoca@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global

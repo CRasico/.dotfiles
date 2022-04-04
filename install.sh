@@ -64,4 +64,5 @@ fi
 echo -e $INSTALL_NEOVIM_SUCCESSFUL
 
 # TODO: Setup NeoVim bindings
+mkdir -p ~/.config/nvim
 ln -s ~/.dotfile/.config/nvim/init.vim ~/.config/nvim/init.vim

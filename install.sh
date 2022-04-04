@@ -53,7 +53,7 @@ fi
 echo -e $INSTALL_ZSH_SUCCESSFUL
 
 # TODO: Setup ZSH bindings
-ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
+# ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
 
 echo -e $ATTEMPTING_NEOVIM_INSTALL
 has_nvim=`which nvim`
@@ -65,4 +65,6 @@ echo -e $INSTALL_NEOVIM_SUCCESSFUL
 
 # TODO: Setup NeoVim bindings
 mkdir -p ~/.config/nvim
-ln -s ~/.dotfile/.config/nvim/init.vim ~/.config/nvim/init.vim
+# ln -s ~/.dotfile/.config/nvim/init.vim ~/.config/nvim/init.vim
+nvim --headless +source% +q
+nvim --headless +PlugInstall +q

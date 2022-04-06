@@ -15,6 +15,8 @@ ATTEMPTING_ZSH_INSTALL="${CYAN}Attempting to install zsh${REGULAR}"
 INSTALL_ZSH_SUCCESSFUL="${GREEN}Successfully installed zsh${REGULAR}"
 ATTEMPTING_NEOVIM_INSTALL="${CYAN}Attempting to install neovim${REGULAR}"
 INSTALL_NEOVIM_SUCCESSFUL="${GREEN}Successfully installed neovim${REGULAR}"
+LINK_ZSH="${YELLOW}Removing and Adding Symlink for .zshrc${REGULAR}"
+LINK_NEOVIM="${YELLOW}Removing and Adding Symlink for nvim in .config/nvim${REGULAR}"
 
 echo -e $STARTING_INSTALLATION
 
@@ -52,8 +54,9 @@ then
 fi
 echo -e $INSTALL_ZSH_SUCCESSFUL
 
-# TODO: Setup ZSH bindings
-# ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
+echo -e $LINK_ZSH
+unlink ~/.zshrc
+ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
 echo -e $ATTEMPTING_NEOVIM_INSTALL
 has_nvim=`which nvim`
@@ -63,8 +66,9 @@ then
 fi
 echo -e $INSTALL_NEOVIM_SUCCESSFUL
 
-# TODO: Setup NeoVim bindings
+echo -e $LINK_NEOVIM
 mkdir -p ~/.config/nvim
-# ln -s ~/.dotfile/.config/nvim/init.vim ~/.config/nvim/init.vim
-nvim --headless +source% +q
-nvim --headless +PlugInstall +q
+unlink ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+nvim --headless +PlugInstall
+quit

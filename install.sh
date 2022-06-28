@@ -13,21 +13,14 @@ ATTEMPTING_GIT_INSTALL="${CYAN}Attempting to install git${REGULAR}"
 INSTALL_GIT_SUCCESSFUL="${GREEN}Successfully installed git${REGULAR}"
 ATTEMPTING_ZSH_INSTALL="${CYAN}Attempting to install zsh${REGULAR}"
 INSTALL_ZSH_SUCCESSFUL="${GREEN}Successfully installed zsh${REGULAR}"
+ATTEMPTING_TMUX_INSTALL="${CYAN}Attempting to install tmux${REGULAR}"
+INSTALL_TMUX_SUCCESSFUL="${GREEN}Successfully installed tmux${REGULAR}"
 ATTEMPTING_NEOVIM_INSTALL="${CYAN}Attempting to install neovim${REGULAR}"
 INSTALL_NEOVIM_SUCCESSFUL="${GREEN}Successfully installed neovim${REGULAR}"
 LINK_ZSH="${YELLOW}Removing and Adding Symlink for .zshrc${REGULAR}"
 LINK_NEOVIM="${YELLOW}Removing and Adding Symlink for nvim in .config/nvim${REGULAR}"
 
 echo -e $STARTING_INSTALLATION
-
-# Psuedo Code:
-# 1. Validate/Update Brew Installation 
-# 2. Install GIT
-# 3. Bind .gitconfig
-# 3. Use Brew to install ZSH
-# 4. Bind .zshrc
-# 5. Use Brew to install NeoVim
-# 6. Bind .config/nvim/init.vim
 
 echo -e $ATTEMPTING_BREW_INSTALL
 has_brew=`which brew`
@@ -53,6 +46,14 @@ then
     brew install zsh
 fi
 echo -e $INSTALL_ZSH_SUCCESSFUL
+
+echo -e $ATTEMPTING_TMUX_INSTALL 
+has_tmux=`which tmux`
+if [ has_tmux == "tmux not found" ]
+then 
+    brew install tmux
+fi
+echo -e $INSTALL_TMUX_SUCCESSFUL
 
 echo -e $LINK_ZSH
 unlink ~/.zshrc

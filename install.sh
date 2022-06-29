@@ -81,3 +81,6 @@ ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
 nvim --headless +PlugInstall
 nvim --headless +CocInstall
 quit
+
+# Would be sweet to add .net, rust, node.js ect to this install if we can
+# dotnet tool install --global csharp-ls - language server for .net 

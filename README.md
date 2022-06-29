@@ -6,7 +6,7 @@ It will also go out and fetch the below resources and install them on your syste
 
 ## How To Utilize
 
-In orer to install, ensure to download or clone this repository directly to the root directory `~`
+In order to install, ensure to download or clone this repository directly to the root directory `~`
 
 From there utilizing bash run the installation script in order to setup your configuration 
 

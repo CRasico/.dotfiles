@@ -93,9 +93,16 @@ nnoremap <silent> <leader>- :exe ":vertical resize " . (winwidth(0) * 3/4)<CR>
 
 " Setup Vimrc Defaults --------------------- {{{
 syntax on
+set termguicolors
 colorscheme gruvbox-material
 " in order to get the theme and fonts to play nice make sure to download and add a nerd-font
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
+
+:highlight Cursor guifg=white guibg=lightgrey
+:highlight iCursor guifg=white guibg=coral
+
+set guicursor=n-v-c-ci:block-Cursor
+set guicursor+=i:block-iCursor
 
 set encoding=utf-8
 set autoindent

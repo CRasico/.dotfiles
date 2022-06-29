@@ -1,3 +1,5 @@
+ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
+
 " Setup Plugin Manageur -------------------- {{{
 call plug#begin('~/vim/plugged')
 
@@ -16,6 +18,9 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
+
+" Rust Programming
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 " }}}
@@ -70,9 +75,13 @@ augroup mygroup
 augroup end
 
 " File Explorer Mappings
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <leader>t :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
+
+" Resizing Windows with pure Speed
+nnoremap <silent> <leader>= :exe ":vertical resize " . (winwidth(0) * 5/4)<CR>
+nnoremap <silent> <leader>- :exe ":vertical resize " . (winwidth(0) * 3/4)<CR>
 
 " TODO: Let's add a status bar here, cause that would be pretty cool
 
@@ -89,6 +98,8 @@ set encoding=utf-8
 set autoindent
 set backspace=indent,eol,start
 set smarttab
+set colorcolumn=100
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 set hidden
 set nowritebackup

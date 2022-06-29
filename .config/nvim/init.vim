@@ -1,4 +1,4 @@
-ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
+" make sure dotfiles are installed so this link works ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
 
 " Setup Plugin Manageur -------------------- {{{
 call plug#begin('~/vim/plugged')

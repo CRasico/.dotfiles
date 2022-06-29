@@ -50,7 +50,7 @@ echo -e $INSTALL_ZSH_SUCCESSFUL
 
 echo -e $ATTEMPTING_TMUX_INSTALL 
 has_tmux=`which tmux`
-if [ has_tmux == "tmux not found" ]
+if [ "$has_tmux" == "" ]
 then 
     brew install tmux
 fi

@@ -22,6 +22,9 @@ Plug 'nvim-lualine/lualine.nvim'
 " Rust Programming
 Plug 'rust-lang/rust.vim'
 
+" .Net Programming
+" Plug 'OmniSharp/omnisharp-vim'
+
 call plug#end()
 " }}}
 

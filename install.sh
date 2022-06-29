@@ -50,7 +50,7 @@ echo -e $INSTALL_ZSH_SUCCESSFUL
 
 echo -e $ATTEMPTING_TMUX_INSTALL 
 has_tmux=`which tmux`
-if [ has_tmux == "tmux not found" ]
+if [ "$has_tmux" == "" ]
 then 
     brew install tmux
 fi
@@ -77,7 +77,12 @@ echo -e "successfully installed vim plug"
 echo -e $LINK_NEOVIM
 mkdir -p ~/.config/nvim
 unlink ~/.config/nvim/init.vim
+unlink ~/.config/nvim/coc-settings.json
 ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 nvim --headless +PlugInstall
 nvim --headless +CocInstall
 quit
+
+# Would be sweet to add .net, rust, node.js ect to this install if we can
+# dotnet tool install --global csharp-ls - language server for .net 

@@ -25,7 +25,7 @@ echo -e $STARTING_INSTALLATION
 
 echo -e $ATTEMPTING_BREW_INSTALL
 has_brew=`which brew`
-if [ has_brew == "brew not found" ]
+if [ "$has_brew" == "" ]
 then
     echo 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -34,7 +34,7 @@ echo -e $INSTALL_BREW_SUCCESSFUL
 
 echo -e $ATTEMPTING_GIT_INSTALL
 has_git=`which git`
-if [ has_git == "git not found" ]
+if [ "$has_git" == "" ]
 then 
     brew install git
 fi
@@ -42,7 +42,7 @@ echo -e $INSTALL_GIT_SUCCESSFUL
 
 echo -e $ATTEMPTING_ZSH_INSTALL
 has_zsh=`which zsh`
-if [ has_zsh == "zsh not found" ]
+if [ "$has_zsh" == "" ]
 then
     brew install zsh
 fi
@@ -62,11 +62,17 @@ ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
 echo -e $ATTEMPTING_NEOVIM_INSTALL
 has_nvim=`which nvim`
-if [ has_nvim == "nvim not found" ]
+echo "$has_nvim"
+if [ "$has_nvim" == "" ]
 then
-    brew install neovim
+    brew install nvim
 fi
 echo -e $INSTALL_NEOVIM_SUCCESSFUL
+
+echo -e "installing vim plug"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo -e "successfully installed vim plug"
 
 echo -e $LINK_NEOVIM
 mkdir -p ~/.config/nvim

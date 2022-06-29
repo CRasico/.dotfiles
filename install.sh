@@ -1,4 +1,5 @@
 #!/bin/bash
+
 REGULAR="\033[0m"
 RED="\033[0;31m"
 GREEN="\033[0;32m"
@@ -72,4 +73,5 @@ mkdir -p ~/.config/nvim
 unlink ~/.config/nvim/init.vim
 ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
 nvim --headless +PlugInstall
+nvim --headless +CocInstall
 quit

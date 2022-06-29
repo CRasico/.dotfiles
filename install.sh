@@ -77,7 +77,9 @@ echo -e "successfully installed vim plug"
 echo -e $LINK_NEOVIM
 mkdir -p ~/.config/nvim
 unlink ~/.config/nvim/init.vim
+unlink ~/.config/nvim/coc-settings.json
 ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
+ln -s ~/.dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 nvim --headless +PlugInstall
 nvim --headless +CocInstall
 quit

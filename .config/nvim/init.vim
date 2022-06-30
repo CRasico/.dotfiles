@@ -13,7 +13,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " File Explorer for Vim
-Plug 'kyazdani42/nvim-web-devicons' " for file icons Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" File icons 
+ Plug 'kyazdani42/nvim-tree.lua'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
@@ -29,7 +32,7 @@ call plug#end()
 
 " Lua Infrastructure Setup {{{
 lua require('nvim-tree').setup {}
-lua require('lualine').setup { options = { theme = 'gruvbox_dark' } }
+lua require('lualine').setup { options = { theme = 'embark' } }
 " }}}
 
 " Setup Mappings --------------------------- {{{

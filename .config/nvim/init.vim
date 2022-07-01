@@ -3,8 +3,8 @@
 " Setup Plugin Manageur -------------------- {{{
 call plug#begin('~/vim/plugged')
 
-" Probably the only theme better tahn gruvbox itself
-Plug 'sainnhe/gruvbox-material'
+" Themeing
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 
 " Syntax Tree Building
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -13,8 +13,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " File Explorer for Vim
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+
+" File icons 
+ Plug 'kyazdani42/nvim-tree.lua'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
@@ -30,7 +32,7 @@ call plug#end()
 
 " Lua Infrastructure Setup {{{
 lua require('nvim-tree').setup {}
-lua require('lualine').setup { options = { theme = 'gruvbox_dark' } }
+lua require('lualine').setup { options = { theme = 'embark' } }
 " }}}
 
 " Setup Mappings --------------------------- {{{
@@ -94,7 +96,7 @@ nnoremap <silent> <leader>- :exe ":vertical resize " . (winwidth(0) * 3/4)<CR>
 " Setup Vimrc Defaults --------------------- {{{
 syntax on
 set termguicolors
-colorscheme gruvbox-material
+colorscheme embark
 " in order to get the theme and fonts to play nice make sure to download and add a nerd-font
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
 

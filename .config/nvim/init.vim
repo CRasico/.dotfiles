@@ -16,13 +16,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kyazdani42/nvim-web-devicons'
 
 " File icons 
- Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
 
 " Rust Programming
 Plug 'rust-lang/rust.vim'
+
+" Make programming transparent
+Plug 'xiyaowong/nvim-transparent'
+let g:transparent_enabled=v:true
 
 " .Net Programming
 " Plug 'OmniSharp/omnisharp-vim'
@@ -88,7 +92,9 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 nnoremap <silent> <leader>= :exe ":vertical resize " . (winwidth(0) * 5/4)<CR>
 nnoremap <silent> <leader>- :exe ":vertical resize " . (winwidth(0) * 3/4)<CR>
 
-" TODO: Let's add a status bar here, cause that would be pretty cool
+nnoremap <silent> <leader>mt :TransparentToggle<CR>
+
+"TODO: Let's add a status bar here, cause that would be pretty cool
 
 " }}}
 
@@ -123,5 +129,5 @@ set textwidth=0
 set tabstop=4
 set shiftwidth=4
 set expandtab
-" }}}
+"}}}
 

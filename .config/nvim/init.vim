@@ -16,7 +16,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kyazdani42/nvim-web-devicons'
 
 " File icons 
- Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
@@ -24,8 +24,14 @@ Plug 'nvim-lualine/lualine.nvim'
 " Rust Programming
 Plug 'rust-lang/rust.vim'
 
-" .Net Programming
-" Plug 'OmniSharp/omnisharp-vim'
+" Make programming transparent
+Plug 'xiyaowong/nvim-transparent'
+let g:transparent_enabled=v:true
+
+" Fuzzy Finding
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 call plug#end()
 " }}}
@@ -69,8 +75,8 @@ nmap <leader>cl <Plug>(coc-codelens-action)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Formatting Selected Code (TODO: Comeback and See if I Want this)
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+xmap <leader>ff <Plug>(coc-format-selected)
+nmap <leader>ff <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -78,6 +84,13 @@ augroup mygroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+" File Searching Mappings
+nnoremap <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap<leader>m :Marks<CR>
 
 " File Explorer Mappings
 nnoremap <leader>t :NvimTreeToggle<CR>
@@ -88,7 +101,9 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 nnoremap <silent> <leader>= :exe ":vertical resize " . (winwidth(0) * 5/4)<CR>
 nnoremap <silent> <leader>- :exe ":vertical resize " . (winwidth(0) * 3/4)<CR>
 
-" TODO: Let's add a status bar here, cause that would be pretty cool
+nnoremap <silent> <leader>mt :TransparentToggle<CR>
+
+"TODO: Let's add a status bar here, cause that would be pretty cool
 
 " }}}
 
@@ -123,5 +138,5 @@ set textwidth=0
 set tabstop=4
 set shiftwidth=4
 set expandtab
-" }}}
+"}}}
 

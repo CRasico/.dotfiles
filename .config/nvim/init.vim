@@ -112,6 +112,7 @@ nnoremap <silent> <leader>mt :TransparentToggle<CR>
 syntax on
 set termguicolors
 colorscheme embark
+let g:embark_terminal_italics=1
 " in order to get the theme and fonts to play nice make sure to download and add a nerd-font
 " https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
 

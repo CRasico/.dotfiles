@@ -1,4 +1,5 @@
 " make sure dotfiles are installed so this link works ln -s ~/.dotfile/zsh/.zshrc ~/.zshrc
+" :lua require("lua.crasic.init")
 
 " Setup Plugin Manageur -------------------- {{{
 call plug#begin('~/vim/plugged')

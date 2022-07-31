@@ -74,6 +74,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo -e "successfully installed vim plug"
 
+# Need to Add Packer Installation https://www.github.com/wbthomason/packer.nvim
+
 echo -e $LINK_NEOVIM
 mkdir -p ~/.config/nvim
 unlink ~/.config/nvim/init.vim

@@ -1,0 +1,7 @@
+vim.api.nvim_set_option("encoding", "utf-8")
+vim.api.nvim_set_option("termguicolors", true)
+vim.api.nvim_set_option("autoindent", true)
+vim.api.nvim_set_option("tabstop", 4)
+vim.api.nvim_set_option("smarttab", true)
+vim.api.nvim_set_option("shiftwidth", 4)
+vim.api.nvim_set_option("number", true)

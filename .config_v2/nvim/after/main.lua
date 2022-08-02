@@ -1,3 +1,7 @@
+print("Hello from After - Main")
+
+vim.g.mapleader = " "
+
 function map(mode, lhs, rhs, opt)
     local options = { noremap = true }
     if opts then 
@@ -5,8 +9,6 @@ function map(mode, lhs, rhs, opt)
     end 
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
-
-vim.g.setleader = " "
 
 map("n", "<leader>h", "<C-w>h", "<CR>")
 map("n", "<leader>j", "<C-w>j", "<CR>")

@@ -1,5 +1,3 @@
-print("Hello from After - Main")
-
 vim.g.mapleader = " "
 
 function map(mode, lhs, rhs, opt)

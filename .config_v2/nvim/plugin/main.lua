@@ -25,6 +25,32 @@ require('packer').startup(function(use)
     -- Transparency
     use { 'xiyaowong/nvim-transparent', run = ':TransparentEnable' }
 
-    -- Rust Programming Help
+	-- LSP Auto Completion
+	use 'hrsh7th/nvim-cmp'
+
+	-- LSP Configurations
+	use 'neovim/nvim-lspconfig'
+
+	-- LSP Snippets
+	use 'hrsh7th/cmp-nvim-lsp'
+
+	-- Buffer Snippets
+	use 'hrsh7th/cmp-buffer'
+
+	-- Snippet Renderer
+	use 'L3MON4D3/LuaSnip'
+	use 'saadparwaiz1/cmp_luasnip'
+
+    -- Rust Programming LSP Provider/Lang
     use 'rust-lang/rust.vim'
+
+	-- Python Programming LSP Provider
+	use 'davidhalter/jedi-vim'
+
+	-- Debugger Adapter
+	use 'mfussenegger/nvim-dap'
+	use 'rcarriga/nvim-dap-ui'
+	
+	-- Debugger Adapter Language Help
+	use 'mfussenegger/nvim-dap-python'
 end)

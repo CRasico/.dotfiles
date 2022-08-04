@@ -1,8 +1,0 @@
-require("plugin.main")
-require("plugin.nvimtree")
-require("plugin.lualine")
-require("color.main")
-require("after.main")
-require("after.defaults")
-require("after.lsp")
-require("after.debugger")

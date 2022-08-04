@@ -6,8 +6,7 @@ GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 CYAN="\033[0;36m"
 
-STARTING_INSTALLATION="${REGULAR}Beginning .dotfiles Installation${REGULAR}"
-INSTALLATION_SUCCESSFUL="${GREEN}Completed Install Successful${REGULAR}"
+STARTING_INSTALLATION="${REGULAR}Beginning .dotfiles Installation${REGULAR}" INSTALLATION_SUCCESSFUL="${GREEN}Completed Install Successful${REGULAR}"
 ATTEMPTING_BREW_INSTALL="${CYAN}Attempting to install brew${REGULAR}"
 INSTALL_BREW_SUCCESSFUL="${GREEN}Successfully installed brew"
 ATTEMPTING_GIT_INSTALL="${CYAN}Attempting to install git${REGULAR}"
@@ -77,13 +76,10 @@ echo -e "successfully installed vim plug"
 # Need to Add Packer Installation https://www.github.com/wbthomason/packer.nvim
 
 echo -e $LINK_NEOVIM
-mkdir -p ~/.config/nvim
-unlink ~/.config/nvim/init.vim
-unlink ~/.config/nvim/coc-settings.json
-ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/.dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-nvim --headless +PlugInstall
-nvim --headless +CocInstall
+mkdir -p ~/.config
+unlink ~/.config/nvim
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
+nvim --headless +PackerInstall
 quit
 
 # Would be sweet to add .net, rust, node.js ect to this install if we can

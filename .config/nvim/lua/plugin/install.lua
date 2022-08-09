@@ -4,6 +4,10 @@ require('packer').startup(function(use)
 
     -- Tokyo Night Colorscheme
     use 'folke/tokyonight.nvim'
+	-- Embark Colorscheme
+	use { 'embark-theme/vim', name = 'embark' }
+	-- gruvbox colorsheme
+	use 'morhetz/gruvbox'
 
     -- Tree Sitter for advanced syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }

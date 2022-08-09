@@ -82,5 +82,9 @@ ln -s ~/.dotfiles/config/nvim ~/.config/nvim
 nvim --headless +PackerInstall
 quit
 
-# Would be sweet to add .net, rust, node.js ect to this install if we can
-# dotnet tool install --global csharp-ls - language server for .net 
+# Currently We're Assuming the Binaries for the following are all installed 
+# Ideally we can either check the install and add the servers if we have them
+# Or we can install the languages then the servers
+npm install --global pyright
+dotnet tool install --global csharp-ls
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

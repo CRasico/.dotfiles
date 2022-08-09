@@ -6,8 +6,7 @@ GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
 CYAN="\033[0;36m"
 
-STARTING_INSTALLATION="${REGULAR}Beginning .dotfiles Installation${REGULAR}"
-INSTALLATION_SUCCESSFUL="${GREEN}Completed Install Successful${REGULAR}"
+STARTING_INSTALLATION="${REGULAR}Beginning .dotfiles Installation${REGULAR}" INSTALLATION_SUCCESSFUL="${GREEN}Completed Install Successful${REGULAR}"
 ATTEMPTING_BREW_INSTALL="${CYAN}Attempting to install brew${REGULAR}"
 INSTALL_BREW_SUCCESSFUL="${GREEN}Successfully installed brew"
 ATTEMPTING_GIT_INSTALL="${CYAN}Attempting to install git${REGULAR}"
@@ -74,15 +73,18 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo -e "successfully installed vim plug"
 
+# Need to Add Packer Installation https://www.github.com/wbthomason/packer.nvim
+
 echo -e $LINK_NEOVIM
+rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim
-unlink ~/.config/nvim/init.vim
-unlink ~/.config/nvim/coc-settings.json
-ln -s ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/.dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-nvim --headless +PlugInstall
-nvim --headless +CocInstall
+ln -s ~/.dotfiles/config/nvim ~/.config/nvim
+nvim --headless +PackerInstall
 quit
 
-# Would be sweet to add .net, rust, node.js ect to this install if we can
-# dotnet tool install --global csharp-ls - language server for .net 
+# Currently We're Assuming the Binaries for the following are all installed 
+# Ideally we can either check the install and add the servers if we have them
+# Or we can install the languages then the servers
+npm install --global pyright
+dotnet tool install --global csharp-ls
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

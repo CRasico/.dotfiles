@@ -76,9 +76,9 @@ echo -e "successfully installed vim plug"
 # Need to Add Packer Installation https://www.github.com/wbthomason/packer.nvim
 
 echo -e $LINK_NEOVIM
-mkdir -p ~/.config
-unlink ~/.config/nvim
-ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
+rm -r ~/.config/nvim
+mkdir -p ~/.config/nvim
+ln -s ~/.dotfiles/config/nvim ~/.config/nvim
 nvim --headless +PackerInstall
 quit
 

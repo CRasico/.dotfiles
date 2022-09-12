@@ -1,6 +1,7 @@
 local dap = require('dap')
 local dapui = require('dapui')
 local dappython = require('dap-python')
+local csharp = require('after.csharp') 
 
 dapui.setup({
 
@@ -53,3 +54,4 @@ map("n", "<Left>", ":DapStepOut<CR>")
 map("n", "<Leader>b", ":DapToggleBreakpoint<CR>")
 
 dappython.setup('~/.virtualenvs/debugpy/bin/python')
+csharp.setup()

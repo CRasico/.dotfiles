@@ -51,6 +51,9 @@ require('packer').startup(function(use)
 	-- Python Programming LSP Provider
 	use 'davidhalter/jedi-vim'
 
+	-- CSharp Programming LSP Provider
+	use 'OmniSharp/omnisharp-vim'
+
 	-- Debugger Adapter
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'

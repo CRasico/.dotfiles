@@ -45,8 +45,8 @@ cmp.setup{
 		end
 	},
 	window = {
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered()
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered()
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -74,5 +74,14 @@ require('lspconfig').pyright.setup{
 require('lspconfig').rust_analyzer.setup{
 	on_attach = on_attach,
 	flags = lsp_flags,
+	capabilities = capabilities
+}
+
+local pid = vim.fn.getpid()
+local omnisharp_bin = os.getenv("HOME") .. "/.cache/omnisharp-vim/omnisharp-roslyn/run"
+require('lspconfig').omnisharp.setup{
+	on_attach = on_attach,
+	flags = lsp_flags,
+	cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 	capabilities = capabilities
 }

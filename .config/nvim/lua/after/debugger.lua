@@ -1,6 +1,7 @@
 local dap = require('dap')
 local dapui = require('dapui')
 local dappython = require('dap-python')
+local csharp = require('after.csharp') 
 
 dapui.setup({
 
@@ -37,8 +38,6 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close()
 end
 
-dappython.setup('~/.virtualenvs/debugpy/bin/python')
-
 function map(mode, lhs, rhs, opt)
     local options = { noremap = true }
     if opts then 
@@ -53,3 +52,6 @@ map("n", "<Down>", ":DapStepOver<CR>")
 map("n", "<Right>", ":DapStepInto<CR>")
 map("n", "<Left>", ":DapStepOut<CR>")
 map("n", "<Leader>b", ":DapToggleBreakpoint<CR>")
+
+dappython.setup('~/.virtualenvs/debugpy/bin/python')
+csharp.setup()

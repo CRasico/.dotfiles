@@ -8,5 +8,6 @@ require('neotest').setup({
 })
 
 map('n', '<leader>ut', "<Cmd>lua require('neotest').run.run() <CR>")
-map('n', '<leader>uw', "<Cmd>lua require('neotest').output.open() <CR>")
-map('n', '<leader>us', "<Cmd>lua require('neotest').summary.open() <CR>")
+map('n', '<leader>us', "<Cmd>lua require('neotest').run.run({ suite = true}) <CR>")
+map('n', '<leader>tw', "<Cmd>lua require('neotest').output.open() <CR>")
+map('n', '<leader>ts', "<Cmd>lua require('neotest').summary.open() <CR>")

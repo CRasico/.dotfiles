@@ -61,6 +61,17 @@ require('packer').startup(function(use)
 	-- Debugger Adapter Language Help
 	use 'mfussenegger/nvim-dap-python'
 
-	-- Test Runner
-	use 'klen/nvim-test'
+	-- Test Runners
+	use {
+		'nvim-neotest/neotest',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-treesitter/nvim-treesitter',
+			'antoinemadec/FixCursorHold.nvim'
+		}
+	}
+	use 'nvim-neotest/neotest-python'
+	use 'Issafalcon/neotest-dotnet'
+	use 'haydenmeade/neotest-jest'
+	use 'rouge8/neotest-rust'
 end)

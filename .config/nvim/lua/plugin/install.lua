@@ -60,4 +60,7 @@ require('packer').startup(function(use)
 	
 	-- Debugger Adapter Language Help
 	use 'mfussenegger/nvim-dap-python'
+
+	-- Test Runner
+	use 'klen/nvim-test'
 end)

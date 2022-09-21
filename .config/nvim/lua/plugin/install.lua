@@ -54,6 +54,9 @@ require('packer').startup(function(use)
 	-- CSharp Programming LSP Provider
 	use 'OmniSharp/omnisharp-vim'
 
+	-- Terraform Programming LSP Provider
+	use 'hashicorp/terraform-ls'
+
 	-- Debugger Adapter
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'

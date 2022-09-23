@@ -77,18 +77,19 @@ echo -e "successfully installed vim plug"
 
 echo -e $LINK_NEOVIM
 rm -r ~/.config/nvim
-mkdir -p ~/.config/nvim
-ln -s ~/.dotfiles/config/nvim ~/.config/nvim
-nvim --headless +PackerInstall
-quit
+mkdir -p ~/.config
+ln -s ~/.dotfiles/.config/nvim ~/.config
 
 # Currently We're Assuming the Binaries for the following are all installed 
 # Ideally we can either check the install and add the servers if we have them
 # Or we can install the languages then the servers
 npm install --global pyright
+npm install --global typescript-language-server typescript
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 INSTALL_FOLDER="$HOME/.local/share/nvim"
 rm -rf "$INSTALL_FOLDER/netcoredbg"
 RELEASE_URL=https://github.com/Samsung/netcoredbg/releases/download/2.0.0-895/netcoredbg-linux-amd64.tar.gz
 curl -k -L $RELEASE_URL --output netcoredbg.tar.gz && tar -xzf netcoredbg.tar.gz -C "$INSTALL_FOLDER" && rm netcoredbg.tar.gz
+
+brew install hashicorp/tap/terraform-ls

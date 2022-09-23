@@ -54,10 +54,27 @@ require('packer').startup(function(use)
 	-- CSharp Programming LSP Provider
 	use 'OmniSharp/omnisharp-vim'
 
+	-- Terraform Programming LSP Provider
+	use 'hashicorp/terraform-ls'
+
 	-- Debugger Adapter
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui'
 	
 	-- Debugger Adapter Language Help
 	use 'mfussenegger/nvim-dap-python'
+
+	-- Test Runners
+	use {
+		'nvim-neotest/neotest',
+		requires = {
+			'nvim-lua/plenary.nvim',
+			'nvim-treesitter/nvim-treesitter',
+			'antoinemadec/FixCursorHold.nvim'
+		}
+	}
+	use 'nvim-neotest/neotest-python'
+	use 'Issafalcon/neotest-dotnet'
+	use 'haydenmeade/neotest-jest'
+	use 'rouge8/neotest-rust'
 end)

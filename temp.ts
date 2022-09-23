@@ -1,3 +1,6 @@
-function TestFunction(args: string[]) {
-	return args.map(arg => arg);
+function testFunction(variable: string) {
+	return variable;
 }
+
+let variable = 4;
+testFunction(variable.toString());

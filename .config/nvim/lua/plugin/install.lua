@@ -38,12 +38,20 @@ require('packer').startup(function(use)
 	-- LSP Snippets
 	use 'hrsh7th/cmp-nvim-lsp'
 
-	-- Buffer Snippets
+	-- Buffer Completion
 	use 'hrsh7th/cmp-buffer'
+
+	-- Path Completion
+	use 'hrsh7th/cmp-path'
+
+	-- Snippet Completions
+	use 'saadparwaiz1/cmp_luasnip'
 
 	-- Snippet Renderer
 	use 'L3MON4D3/LuaSnip'
-	use 'saadparwaiz1/cmp_luasnip'
+
+	-- Easy Friendly Snippets
+	use 'rafamadriz/friendly-snippets'
 
     -- Rust Programming LSP Provider/Lang
     use 'rust-lang/rust.vim'

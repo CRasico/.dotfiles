@@ -56,6 +56,9 @@ require('packer').startup(function(use)
 	-- LSP Icons
 	use "onsails/lspkind-nvim"
 
+	-- LSP Signature Help
+	use 'ray-x/lsp_signature.nvim'
+
     -- Rust Programming LSP Provider/Lang
     use 'rust-lang/rust.vim'
 

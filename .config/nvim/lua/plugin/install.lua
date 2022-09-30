@@ -4,10 +4,10 @@ require('packer').startup(function(use)
 
     -- Tokyo Night Colorscheme
     use 'folke/tokyonight.nvim'
-	-- Embark Colorscheme
-	use { 'embark-theme/vim', name = 'embark' }
-	-- gruvbox colorsheme
-	use 'morhetz/gruvbox'
+
+	-- Various Other Themes -> 
+	-- Embark Colorscheme use { 'embark-theme/vim', name = 'embark' }
+	-- gruvbox colorsheme use 'morhetz/gruvbox'
 
     -- Tree Sitter for advanced syntax highlighting
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -48,7 +48,7 @@ require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip'
 
 	-- Snippet Renderer
-	use 'L3MON4D3/LuaSnip'
+	use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
 
 	-- Easy Friendly Snippets
 	use 'rafamadriz/friendly-snippets'

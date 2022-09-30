@@ -1,6 +1,14 @@
 local luasnip = require('luasnip')
 local lspkind = require('lspkind');
+local lsp_signature = require('lsp_signature')
 
+local log_to_file = function(args)
+	file = io.open("temp.txt", "a+")
+	io.output(file)
+	io.write(args)
+	io.write('\n')
+	io.close(file)
+end
 
 lspkind.init()
 
@@ -12,8 +20,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
 local local_capabilities = vim.lsp.protocol.make_client_capabilities()
 local_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local lsp_signature =- require('lsp_signature')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -41,7 +47,9 @@ local on_attach = function(client, bufnr)
 	bind = true,
 	hander_opts = {
 		border = 'rounded'
-	}
+	},
+	floating_window_above_cur_line = false,
+	hint_enable = false,
   }, bufnr);
 end
 
@@ -62,6 +70,7 @@ local cmp = require('cmp')
 cmp.setup {
 	snippet = {
 	  expand = function(args)
+		log_to_file(args.body)
         luasnip.lsp_expand(args.body)
       end	
 	},

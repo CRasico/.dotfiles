@@ -1,3 +1,5 @@
+vim.g.OmniSharp_want_snippet=1
+
 local M = {}
 
 -- Debugger installation location

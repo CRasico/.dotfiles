@@ -53,6 +53,9 @@ require('packer').startup(function(use)
 	-- Easy Friendly Snippets
 	use 'rafamadriz/friendly-snippets'
 
+	-- LSP Icons
+	use "onsails/lspkind-nvim"
+
     -- Rust Programming LSP Provider/Lang
     use 'rust-lang/rust.vim'
 

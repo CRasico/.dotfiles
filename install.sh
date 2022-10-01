@@ -86,6 +86,8 @@ ln -s ~/.dotfiles/.config/nvim ~/.config
 npm install --global pyright
 npm install --global typescript-language-server typescript
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup +nightly component add rust-analyzer-preview
+
 
 INSTALL_FOLDER="$HOME/.local/share/nvim"
 rm -rf "$INSTALL_FOLDER/netcoredbg"

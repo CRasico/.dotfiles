@@ -4,7 +4,6 @@ local dappython = require('dap-python')
 local csharp = require('after.csharp') 
 
 dapui.setup({
-
 	layouts = {
     {
       elements = {

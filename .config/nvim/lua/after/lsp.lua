@@ -1,6 +1,14 @@
 local luasnip = require('luasnip')
 local lspkind = require('lspkind');
+local lsp_signature = require('lsp_signature')
 
+local log_to_file = function(args)
+	file = io.open("temp.txt", "a+")
+	io.output(file)
+	io.write(args)
+	io.write('\n')
+	io.close(file)
+end
 
 lspkind.init()
 
@@ -33,6 +41,16 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>fo', vim.lsp.buf.formatting, bufopts)
+
+  -- Add signature assistance
+  lsp_signature.on_attach({
+	bind = true,
+	hander_opts = {
+		border = 'rounded'
+	},
+	floating_window_above_cur_line = false,
+	hint_enable = false,
+  }, bufnr);
 end
 
 local filter = function(code_action)
@@ -52,6 +70,7 @@ local cmp = require('cmp')
 cmp.setup {
 	snippet = {
 	  expand = function(args)
+		log_to_file(args.body)
         luasnip.lsp_expand(args.body)
       end	
 	},

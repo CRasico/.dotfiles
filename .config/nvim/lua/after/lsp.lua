@@ -2,24 +2,12 @@ local luasnip = require('luasnip')
 local lspkind = require('lspkind');
 local lsp_signature = require('lsp_signature')
 
-local log_to_file = function(args)
-	file = io.open("temp.txt", "a+")
-	io.output(file)
-	io.write(args)
-	io.write('\n')
-	io.close(file)
-end
-
 lspkind.init()
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0)) return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
-
-local local_capabilities = vim.lsp.protocol.make_client_capabilities()
-local_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -70,13 +58,12 @@ local cmp = require('cmp')
 cmp.setup {
 	snippet = {
 	  expand = function(args)
-		log_to_file(args.body)
         luasnip.lsp_expand(args.body)
       end	
 	},
 	window = {
-	--	completion = cmp.config.window.bordered(),
-	--	documentation = cmp.config.window.bordered()
+	  completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered()
 	},
 	mapping = {
 		['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -141,7 +128,8 @@ cmp.setup {
 	}
 }
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(local_capabilities)
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require 'cmp_nvim_lsp'.update_capabilities(capabilities)
 
 require('lspconfig').pyright.setup{
 	on_attach = on_attach,
@@ -153,7 +141,12 @@ require('lspconfig').tsserver.setup{
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
-	filter = filter
+	filter = filter,
+	settings = {
+    	completions = {
+    		completeFunctionCalls = true
+    	}
+  	}
 }
 require('lspconfig').rust_analyzer.setup{
 	cmd = { "rustup", "run", "nightly", "rust-analyzer" },
@@ -180,7 +173,12 @@ require('lspconfig').omnisharp.setup{
 	flags = lsp_flags,
 	cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 	capabilities = capabilities,
-	filter = filter
+	filter = filter,
+	settings = {
+    	completions = {
+    		completeFunctionCalls = true
+    	}
+  	}
 }
 
 require('luasnip/loaders/from_vscode').lazy_load()

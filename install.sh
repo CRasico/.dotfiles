@@ -17,6 +17,8 @@ ATTEMPTING_TMUX_INSTALL="${CYAN}Attempting to install tmux${REGULAR}"
 INSTALL_TMUX_SUCCESSFUL="${GREEN}Successfully installed tmux${REGULAR}"
 ATTEMPTING_NEOVIM_INSTALL="${CYAN}Attempting to install neovim${REGULAR}"
 INSTALL_NEOVIM_SUCCESSFUL="${GREEN}Successfully installed neovim${REGULAR}"
+ATTEMPING_PACKER_INSTALL="${CYAN}Attempting to install packer${REGULAR}"
+INSTALL_PACKER_SUCCESSFUL="${GREEN}Successfully installed packer${REGULAR}"
 LINK_ZSH="${YELLOW}Removing and Adding Symlink for .zshrc${REGULAR}"
 LINK_NEOVIM="${YELLOW}Removing and Adding Symlink for nvim in .config/nvim${REGULAR}"
 
@@ -68,12 +70,10 @@ then
 fi
 echo -e $INSTALL_NEOVIM_SUCCESSFUL
 
-echo -e "installing vim plug"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-echo -e "successfully installed vim plug"
-
-# Need to Add Packer Installation https://www.github.com/wbthomason/packer.nvim
+echo -e $ATTEMPING_PACKER_INSTALL
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+echo -e $INSTALL_PACKER_SUCCESSFUL
 
 echo -e $LINK_NEOVIM
 rm -r ~/.config/nvim

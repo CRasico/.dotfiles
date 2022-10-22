@@ -6,6 +6,7 @@ local config = {
   plugins = {
     init = {
       { "folke/tokyonight.nvim" },
+      { "xiyaowong/nvim-transparent" },
     },
   }
 }

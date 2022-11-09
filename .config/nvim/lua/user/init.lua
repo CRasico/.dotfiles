@@ -8,6 +8,11 @@ local config = {
       { "folke/tokyonight.nvim" },
       { "xiyaowong/nvim-transparent" },
     },
+  },
+  options = {
+    g = {
+      transparent_enabled = true
+    }
   }
 }
 

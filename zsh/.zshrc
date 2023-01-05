@@ -106,3 +106,6 @@ export EDITOR='nvim'
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH/$DOTNET_ROOT

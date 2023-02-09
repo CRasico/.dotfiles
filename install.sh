@@ -19,6 +19,8 @@ ATTEMPTING_NEOVIM_INSTALL="${CYAN}Attempting to install neovim${REGULAR}"
 INSTALL_NEOVIM_SUCCESSFUL="${GREEN}Successfully installed neovim${REGULAR}"
 ATTEMPING_PACKER_INSTALL="${CYAN}Attempting to install packer${REGULAR}"
 INSTALL_PACKER_SUCCESSFUL="${GREEN}Successfully installed packer${REGULAR}"
+ATTEMPING_CARGONEXTEST_INSTALL="${CYAN}Attempting to install cargonextest${REGULAR}"
+INSTALL_CARGONEXTEST_SUCCESSFUL="${GREEN}Successfully installed cargonextest${REGULAR}"
 LINK_ZSH="${YELLOW}Removing and Adding Symlink for .zshrc${REGULAR}"
 LINK_NEOVIM="${YELLOW}Removing and Adding Symlink for nvim in .config/nvim${REGULAR}"
 
@@ -74,6 +76,11 @@ echo -e $ATTEMPING_PACKER_INSTALL
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 echo -e $INSTALL_PACKER_SUCCESSFUL
+
+# Dependency neccessary for neotest-rust to work
+echo -e $ATTEMPING_CARGONEXTEST_INSTALL
+curl -LsSf https://get.nexte.st/latest/mac | tar zxf - -C ${CARGO_HOME:-~/.cargo}/bin
+echo -e $INSTALL_CARGONEXTEST_SUCCESSFUL
 
 echo -e $LINK_NEOVIM
 rm -r ~/.config/nvim

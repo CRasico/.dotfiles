@@ -66,7 +66,7 @@ has_nvim=`which nvim`
 echo "$has_nvim"
 if [ "$has_nvim" == "" ]
 then
-    brew install nvim
+    brew install --HEAD neovim
 fi
 echo -e $INSTALL_NEOVIM_SUCCESSFUL
 

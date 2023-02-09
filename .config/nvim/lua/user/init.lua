@@ -1,7 +1,3 @@
-local lib = require("neotest.lib");
-local dotnetNeotestAdaper = require("neotest-dotnet");
-dotnetNeotestAdaper.root = lib.files.match_root_pattern("*.sln");
-
 local config = {
   header = {
     "Welcome to Cam's Neovim"
@@ -39,10 +35,10 @@ local config = {
                   return vim.fn.getcwd()
                 end,
               }),
+              require("neotest-dotnet"),
               require("neotest-rust"),
-              dotnetNeotestAdaper,
               require("neotest-vim-test")({
-                ignore_file_types = { "python", "vim", "lua", "cs" },
+                ignore_file_types = { "python", "vim", "lua", "cs", "rs" },
               }),
             }
           })
@@ -50,7 +46,7 @@ local config = {
       }
     },
     treesitter = {
-      ensure_installed = { "c_sharp", "lua" },
+      ensure_installed = { "c", "lua", "vim", "help", "c_sharp", "typescript", "rust" },
       highlight = { enable = true, additional_vim_regex_highlighting = false },
       autotag = { enable = true },
       rainbow = {
@@ -70,12 +66,13 @@ local config = {
   },
   mappings = {
     n = {
-      ["<leader>rtt"] = { '<cmd>:lua require("neotest").run.run()<cr>', desc = "Run Nearest Test" },
+      ["<leader>rtt"] = { '<cmd>:lua require("neotest").run.run()<cr>', desc = "Run Nearest Test To Cursor" },
       ["<leader>rtf"] = { '<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc = "Run Unit Tests In File" },
       ["<leader>rto"] = { '<cmd>:lua require("neotest").output.toggle()<cr>', desc = "Open Test Output" },
       ["<leader>rts"] = { '<cmd>:lua require("neotest").summary.toggle()<cr>', desc = "Open Test Summary from Project" }
     }
   }
 }
+require("nvim-treesitter.install").compilers = { 'clang' };
 
 return config;

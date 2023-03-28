@@ -2,9 +2,10 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
-  colorscheme = "tokyonight",
+  colorscheme = "gruvbox-material",
   plugins = {
     init = {
+      { "sainnhe/gruvbox-material" },
       { "folke/tokyonight.nvim" },
       { "xiyaowong/nvim-transparent" },
       { "nvim-neotest/neotest",
@@ -40,10 +41,10 @@ local config = {
   },
   mappings = {
     n = {
-      ["<leader>utt"] = {'<cmd>:lua require("neotest").run.run()<cr>', desc="Run Nearest Test" },
-      ["<leader>utf"] = {'<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc="Run Unit Tests In File" },
-      ["<leader>uto"] = {'<cmd>:lua require("neotest").output.toggle()<cr>', desc="Open Test Output" },
-      ["<leader>uts"] = {'<cmd>:lua require("neotest").summary.toggle()<cr>', desc="Open Test Summary from Project"}
+      ["<leader>rtt"] = {'<cmd>:lua require("neotest").run.run()<cr>', desc="Run Nearest Test" },
+      ["<leader>rtf"] = {'<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc="Run Unit Tests In File" },
+      ["<leader>rto"] = {'<cmd>:lua require("neotest").output.toggle()<cr>', desc="Open Test Output" },
+      ["<leader>rts"] = {'<cmd>:lua require("neotest").summary.toggle()<cr>', desc="Open Test Summary from Project"}
     }
   }
 }

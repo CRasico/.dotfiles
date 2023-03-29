@@ -37,16 +37,16 @@ local config = {
     },
     treesitter = {
       ensure_installed = { "lua", "c", "c_sharp", "rust", "typescript", "python"}
-    }
+    },
     ["mason-lspconfig"] = {
       ensure_installed = { "rust-analyzer", "typescript-language-server", "pyright", "csharp-language-server" }
-    }
+    },
     ["mason-nvim-dap"] = {
       ensure_installed = { "chrome-debug-adapter", "codelldb", "debugpy", "netcoredbg"}
-    }
+    },
     ["mason-null-ls"] = {
       ensure_installed = { "rustfmt", "prettier", "autoflake", "csharpier" }
-    }
+    },
   },
   options = {
     g = {

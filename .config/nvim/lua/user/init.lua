@@ -15,6 +15,7 @@ local config = {
           "antoinemadec/FixCursorHold.nvim",
           "haydenmeade/neotest-jest",
           "rouge8/neotest-rust",
+          "Issafalcon/neotest-dotnet"
         },
         config = function() 
           require("neotest").setup({
@@ -28,6 +29,7 @@ local config = {
                 end,
               }),
               require("neotest-rust"),
+              require("neotest-dotnet")
             }
           })
         end,

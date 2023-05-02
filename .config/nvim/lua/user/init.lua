@@ -2,13 +2,22 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
-  colorscheme = "gruvbox-material",
+  colorscheme = "catppuccin",
   plugins = {
     init = {
+      { "catppuccin/nvim" },
       { "sainnhe/gruvbox-material" },
       { "folke/tokyonight.nvim" },
       { "xiyaowong/nvim-transparent" },
-      { "nvim-neotest/neotest",
+      { "Decodetalkers/csharpls-extended-lsp.nvim" },
+      {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require('lsp_signature').setup()
+        end
+      },
+      {
+        "nvim-neotest/neotest",
         requires = {
           "nvim-lua/plenary.nvim",
           "nvim-treesitter/nvim-treesitter",
@@ -17,13 +26,13 @@ local config = {
           "rouge8/neotest-rust",
           "Issafalcon/neotest-dotnet"
         },
-        config = function() 
+        config = function()
           require("neotest").setup({
             adapters = {
               require("neotest-jest")({
                 jestCommand = "npm test --",
                 jestConfigFile = "custom.jest.config.ts",
-                env = { CI = true},
+                env = { CI = true },
                 cwd = function(path)
                   return vim.fn.getcwd()
                 end,
@@ -35,6 +44,18 @@ local config = {
         end,
       }
     },
+    treesitter = {
+      ensure_installed = { "lua", "c", "c_sharp", "rust", "typescript", "python" }
+    },
+    ["mason-lspconfig"] = {
+      ensure_installed = { "pyright", "csharp_ls" }
+    },
+    ["mason-nvim-dap"] = {
+      ensure_installed = { "chrome-debug-adapter", "codelldb", "debugpy", "netcoredbg" }
+    },
+    ["mason-null-ls"] = {
+      ensure_installed = { "rustfmt", "prettier", "autoflake", "csharpier" }
+    },
   },
   options = {
     g = {
@@ -43,12 +64,12 @@ local config = {
   },
   mappings = {
     n = {
-      ["<leader>rtt"] = {'<cmd>:lua require("neotest").run.run()<cr>', desc="Run Nearest Test" },
-      ["<leader>rtf"] = {'<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc="Run Unit Tests In File" },
-      ["<leader>rto"] = {'<cmd>:lua require("neotest").output.toggle()<cr>', desc="Open Test Output" },
-      ["<leader>rts"] = {'<cmd>:lua require("neotest").summary.toggle()<cr>', desc="Open Test Summary from Project"}
+      ["<leader>rtt"] = { '<cmd>:lua require("neotest").run.run()<cr>', desc = "Run Nearest Test" },
+      ["<leader>rtf"] = { '<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc = "Run Unit Tests In File" },
+      ["<leader>rto"] = { '<cmd>:lua require("neotest").output.toggle()<cr>', desc = "Open Test Output" },
+      ["<leader>rts"] = { '<cmd>:lua require("neotest").summary.toggle()<cr>', desc = "Open Test Summary from Project" }
     }
-  }
+  },
 }
 
 return config;

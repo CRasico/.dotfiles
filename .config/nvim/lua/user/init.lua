@@ -2,9 +2,10 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
-  colorscheme = "gruvbox-material",
+  colorscheme = "catppuccin",
   plugins = {
     init = {
+      { "catppuccin/nvim" },
       { "sainnhe/gruvbox-material" },
       { "folke/tokyonight.nvim" },
       { "xiyaowong/nvim-transparent" },

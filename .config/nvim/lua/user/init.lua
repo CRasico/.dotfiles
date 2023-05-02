@@ -8,6 +8,13 @@ local config = {
       { "sainnhe/gruvbox-material" },
       { "folke/tokyonight.nvim" },
       { "xiyaowong/nvim-transparent" },
+      { "Decodetalkers/csharpls-extended-lsp.nvim" },
+      {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+          require('lsp_signature').setup()
+        end
+      },
       {
         "nvim-neotest/neotest",
         requires = {
@@ -40,7 +47,7 @@ local config = {
       ensure_installed = { "lua", "c", "c_sharp", "rust", "typescript", "python" }
     },
     ["mason-lspconfig"] = {
-      ensure_installed = { "pyright" }
+      ensure_installed = { "pyright", "csharp_ls" }
     },
     ["mason-nvim-dap"] = {
       ensure_installed = { "chrome-debug-adapter", "codelldb", "debugpy", "netcoredbg" }
@@ -61,7 +68,7 @@ local config = {
       ["<leader>rto"] = { '<cmd>:lua require("neotest").output.toggle()<cr>', desc = "Open Test Output" },
       ["<leader>rts"] = { '<cmd>:lua require("neotest").summary.toggle()<cr>', desc = "Open Test Summary from Project" }
     }
-  }
+  },
 }
 
 return config;

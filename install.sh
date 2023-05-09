@@ -79,8 +79,6 @@ echo -e $LINK_NEOVIM
 rm -r ~/.config/nvim
 mkdir -p ~/.config
 ln -s ~/.dotfiles/.config/nvim ~/.config
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 nvim +PackerSync
-
-# TODO: Going to try out AstroVim for a little big, in the future add custom installs for the languages I normally use
-# C#, TS, JS, Go, Rust

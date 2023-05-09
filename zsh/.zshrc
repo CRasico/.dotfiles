@@ -102,3 +102,8 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+# Dotnet Environment Varialbes
+export DOTNET_ENVIRONMENT='Development'
+export ASPNETCORE_ENVIRONMENT='Development'

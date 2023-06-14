@@ -107,3 +107,7 @@ export EDITOR='nvim'
 # Dotnet Environment Varialbes
 export DOTNET_ENVIRONMENT='Development'
 export ASPNETCORE_ENVIRONMENT='Development'
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/CRasico/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

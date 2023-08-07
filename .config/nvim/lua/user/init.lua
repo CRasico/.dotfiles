@@ -60,13 +60,14 @@ local config = {
   lsp = {
     config = {
       csharp_ls = function()
+        local root_dir = function(startpath)
+          return require("lspconfig").util.root_pattern("*.sln")(startpath)
+              or require("lspconfig").util.root_pattern("*.csproj")(startpath)
+              or require("lspconfig").util.root_pattern("*.fsproj")(startpath)
+              or require("lspconfig").util.root_pattern("*.git")(startpath)
+        end
         return {
-          root_dir = function(startpath)
-            return require("lspconfig.util").root_pattern("*.sln")(startpath)
-                or require("lspconfig.util").root_pattern("*.csproj")(startpath)
-                or require("lspconfig.util").root_pattern("*.fsproj")(startpath)
-                or require("lspconfig.util").root_pattern("*.git")(startpath)
-          end
+          root_dir = root_dir
         }
       end
     }

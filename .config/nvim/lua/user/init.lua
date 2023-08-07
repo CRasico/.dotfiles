@@ -2,7 +2,6 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
-
   colorscheme = "catppuccin-frappe",
   plugins = {
     init = {
@@ -43,7 +42,8 @@ local config = {
             }
           })
         end,
-      }
+      },
+      { "github/copilot.vim" },
     },
     treesitter = {
       ensure_installed = { "lua", "c", "c_sharp", "rust", "typescript", "python" }

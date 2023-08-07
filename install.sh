@@ -81,4 +81,8 @@ mkdir -p ~/.config
 ln -s ~/.dotfiles/.config/nvim ~/.config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+
 nvim +PackerSync

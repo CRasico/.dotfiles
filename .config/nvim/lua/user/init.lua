@@ -2,6 +2,7 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
+
   colorscheme = "catppuccin-frappe",
   plugins = {
     init = {

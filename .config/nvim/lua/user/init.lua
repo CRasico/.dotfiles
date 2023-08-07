@@ -2,7 +2,8 @@ local config = {
   header = {
     "Welcome to Cam's Neovim"
   },
-  colorscheme = "catppuccin",
+
+  colorscheme = "catppuccin-frappe",
   plugins = {
     init = {
       { "catppuccin/nvim" },
@@ -51,11 +52,26 @@ local config = {
       ensure_installed = { "pyright", "csharp_ls" }
     },
     ["mason-nvim-dap"] = {
-      ensure_installed = { "chrome-debug-adapter", "codelldb", "debugpy", "netcoredbg" }
+      ensure_installed = { "chrome-debug-adapter", "codelldb", "debugpy", "netcoredbg" },
     },
     ["mason-null-ls"] = {
       ensure_installed = { "rustfmt", "prettier", "autoflake", "csharpier" }
     },
+  },
+  lsp = {
+    config = {
+      csharp_ls = function()
+        local root_dir = function(startpath)
+          return require("lspconfig").util.root_pattern("*.sln")(startpath)
+              or require("lspconfig").util.root_pattern("*.csproj")(startpath)
+              or require("lspconfig").util.root_pattern("*.fsproj")(startpath)
+              or require("lspconfig").util.root_pattern("*.git")(startpath)
+        end
+        return {
+          root_dir = root_dir
+        }
+      end
+    }
   },
   options = {
     g = {
@@ -67,7 +83,7 @@ local config = {
       ["<leader>rtt"] = { '<cmd>:lua require("neotest").run.run()<cr>', desc = "Run Nearest Test" },
       ["<leader>rtf"] = { '<cmd>:lua require("neotest").run.run(vim.fn.expand("%"))<cr>', desc = "Run Unit Tests In File" },
       ["<leader>rto"] = { '<cmd>:lua require("neotest").output.toggle()<cr>', desc = "Open Test Output" },
-      ["<leader>rts"] = { '<cmd>:lua require("neotest").summary.toggle()<cr>', desc = "Open Test Summary from Project" }
+      ["<leader>rts"] = { '<cmd>:lua require("neotest").summary.toggle()<cr>', desc = "Open Test Summary from Project" },
     }
   },
 }

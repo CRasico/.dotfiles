@@ -43,7 +43,7 @@ local config = {
           })
         end,
       },
-      { "github/copilot.vim" },
+      { "github/copilot.vim" }
     },
     treesitter = {
       ensure_installed = { "lua", "c", "c_sharp", "rust", "typescript", "python" }
@@ -59,7 +59,7 @@ local config = {
     },
   },
   lsp = {
-    config = {
+    ["server-settings"] = {
       csharp_ls = function()
         local root_dir = function(startpath)
           return require("lspconfig").util.root_pattern("*.sln")(startpath)

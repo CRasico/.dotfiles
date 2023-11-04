@@ -20,9 +20,11 @@ Below are a listing of standard mapping configurations to help configure neovim 
 |---|---|
 | Window Left | Space + h |
 | Window Right | Space + l |
-| Toggle File Explorer | Space 
+| Window Split | Space + ss |
+| New Termainl | Space + tt |
+| Split Terminal | Space + ts |
 
-### Standard Management
+### Explorer Management
 | Command | Mapping |
 |---|---|
-| Toggle File Explorer | Space 
+| Toggle File Explorer | Space + e |

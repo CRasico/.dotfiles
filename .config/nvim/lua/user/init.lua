@@ -68,7 +68,10 @@ local config = {
               or require("lspconfig").util.root_pattern("*.git")(startpath)
         end
         return {
-          root_dir = root_dir
+          root_dir = root_dir,
+          handlers = {
+            ["textDocument/definition"] = require('csharpls_extended').handler,
+          }
         }
       end
     }

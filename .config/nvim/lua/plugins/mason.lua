@@ -1,49 +1,25 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "neovim/nvim-lspconfig",
-	  {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-  },
-  config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
-    local lsp_zero = require("lsp-zero")
-
-    mason.setup({
+  {
+    "williamboman/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+      "MasonUpdate", -- AstroNvim extension here as well
+      "MasonUpdateAll", -- AstroNvim specific
+    },
+    opts = {
       ui = {
         icons = {
           package_installed = "✓",
-          package_pending = "➜",
           package_uninstalled = "✗",
+          package_pending = "⟳",
         },
       },
-    })
-
-    mason_lspconfig.setup({
-      ensure_installed = {
-        "tsserver",
-        "pyright",
-        "csharp_ls",
-        "html",
-        "cssls",
-        "lua_ls",
-      },
-      automatic_installation = true,
-      handlers = {
-        lsp_zero.default_setup,
-      },
-    })
-
-    mason_tool_installer.setup({
-      ensure_installed = {
-        "prettier",
-        "stylua",
-        "pylint",
-        "eslint_d",
-      },
-    })
-  end,
+    },
+    build = ":MasonUpdate",
+    config = require "plugins.configs.mason",
+  },
 }

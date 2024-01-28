@@ -1,0 +1,10 @@
+-- set leader key
+vim.g.mapleader = " "
+
+-- other options
+local opt = vim.opt
+
+opt.relativenumber = true
+opt.number = true
+
+opt.tabstop = 2

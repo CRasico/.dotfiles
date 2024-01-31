@@ -10,7 +10,7 @@ A module that contains all core modules for neovim. This includes base file rema
 
 The main module containing all added packages, making neovim an IDE
 
-#### Colorscheme 
+#### Colorscheme
 
 - Catppuccin: A simple pastal color pallette for neovim that makes text easier to read and easier to edit code.
 
@@ -21,14 +21,22 @@ The main module containing all added packages, making neovim an IDE
 
 #### Mason
 
-- mason: a package manager for all things LSP, debugging and formatting 
+- mason: a package manager for all things LSP, debugging and formatting
 
-### TODO's 
-- [X] Add Colorscheme - Catppuccin
-- [X] Add LSP Management - Mason 
+#### Formatting
+
+- null_ls to support builtins for auto formatting various files
+- plenary a precursor to using null_ls
+- mason_null_ls to help install and configure handlers for formatters supported by Mason
+
+### TODO's
+
+- [x] Add Colorscheme - Catppuccin
+- [x] Add LSP Management - Mason
 - [ ] Debugger - NVIM DAP and NVIM DAP UI
-- [ ] File Explorer - Nvim Tree
+- [x] File Explorer - Nvim Tree
 - [ ] Telescope
-- [ ] Which Key (to make it easy to main
+- [x] Which Key (to make it easy to main
 - [ ] FZF Fuzzy Finder
-- [ ] Autocompletion Engine
+- [x] Autocompletion Engine
+- [ ] File Formatter

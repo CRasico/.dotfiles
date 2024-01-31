@@ -29,13 +29,17 @@ The main module containing all added packages, making neovim an IDE
 - plenary a precursor to using null_ls
 - mason_null_ls to help install and configure handlers for formatters supported by Mason
 
+### Telescope
+
+A file search
+
 ### TODO's
 
 - [x] Add Colorscheme - Catppuccin
 - [x] Add LSP Management - Mason
 - [ ] Debugger - NVIM DAP and NVIM DAP UI
 - [x] File Explorer - Nvim Tree
-- [ ] Telescope
+- [x] Telescope
 - [x] Which Key (to make it easy to main
 - [ ] FZF Fuzzy Finder
 - [x] Autocompletion Engine

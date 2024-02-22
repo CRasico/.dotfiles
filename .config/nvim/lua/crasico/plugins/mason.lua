@@ -2,6 +2,7 @@ return {
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
 	},
 	config = function()
 		local mason = require("mason")
@@ -33,6 +34,10 @@ return {
 				end,
 			},
 		})
+
+		local lspconfig = require("lspconfig")
+
+		lspconfig.gopls.setup({})
 
 		local keymap = vim.keymap
 

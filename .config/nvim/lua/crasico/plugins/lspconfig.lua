@@ -30,16 +30,16 @@ return {
 			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 			opts.desc = "See available code actions"
-			keymap.set({ "n", "<leader>la" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+			keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 			opts.desc = "Rename"
 			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+			keymap.set("n", "<leader>cD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
 			opts.desc = "Show line diagnostics"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+			keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
 
 			opts.desc = "Go to previous diagnostic"
 			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)

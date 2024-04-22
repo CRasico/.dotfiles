@@ -66,31 +66,37 @@ return {
 		end
 
 		-- configure html server
-		lspconfig["html"].setup({
+		lspconfig.html.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		lspconfig.tsserver.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure css server
-		lspconfig["cssls"].setup({
+		lspconfig.cssls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure csharp server
-		lspconfig["csharp_ls"].setup({
+		lspconfig.csharp_ls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure go server with plugin
+		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
 
 		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
+		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			settings = { -- custom settings for lua

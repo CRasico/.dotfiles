@@ -17,7 +17,6 @@ return {
 				"cssls", -- css language server
 				"lua_ls", -- lua language server
 				"csharp_ls", -- c# language server
-				"gopls", -- go language server
 				"rust_analyzer", -- rust language server
 			},
 			handlers = {
@@ -35,12 +34,7 @@ return {
 			},
 		})
 
-		local lspconfig = require("lspconfig")
-
-		lspconfig.gopls.setup({})
-
 		local keymap = vim.keymap
-
 		keymap.set("n", "<leader>PM", ":Mason<CR>", { desc = "Open Mason (Package Management" })
 	end,
 }

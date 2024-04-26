@@ -1,5 +1,6 @@
 -- set leader key
 vim.g.mapleader = " "
+vim.opt.clipboard = "unnamedplus"
 
 -- other options
 local opt = vim.opt

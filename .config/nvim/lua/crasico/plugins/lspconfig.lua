@@ -87,6 +87,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure prisma server
+		lspconfig.prismals.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure go server with plugin
 		lspconfig.gopls.setup({
 			capabilities = capabilities,

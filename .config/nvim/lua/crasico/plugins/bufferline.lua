@@ -11,5 +11,6 @@ return {
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>h", "<cmd>BufferLineCycleNext<cr>", { desc = "Buffer Cycle Left" })
 		keymap.set("n", "<leader>l", "<cmd>BufferLineCyclePrev<cr>", { desc = "Buffer Cycle Left" })
+		keymap.set("n", "<leader>x", "<cmd>bd<cr>", { desc = "Close Current Buffer" })
 	end,
 }

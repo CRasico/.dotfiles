@@ -6,26 +6,26 @@ return {
 		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local keymap = vim.keymap -- for conciseness
-		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
+			local keymap = vim.keymap -- for conciseness
+			local opts = { noremap = true, silent = true }
 			print("LSP - Attaching to Buffer")
 			opts.buffer = bufnr
 
 			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+			keymap.set("n", "<leader>gR", "<cmd>Telescope lsp_references<CR>", opts)
 
 			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+			keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)
 
 			opts.desc = "Goto definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+			keymap.set("n", "<leader>gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
 			opts.desc = "Goto implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+			keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
 			opts.desc = "Goto type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+			keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
 			opts.desc = "See available code actions"
 			keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -50,6 +50,7 @@ return {
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rlsp", ":LspRestart<CR>", opts)
+			print("LSP - Completed Setting Keymaps")
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)

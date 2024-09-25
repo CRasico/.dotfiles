@@ -41,6 +41,6 @@ A file search
 - [x] File Explorer - Nvim Tree
 - [x] Telescope
 - [x] Which Key (to make it easy to main
-- [ ] FZF Fuzzy Finder
+- [x] FZF Fuzzy Finder
 - [x] Autocompletion Engine
-- [ ] File Formatter
+- [x] File Formatter

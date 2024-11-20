@@ -130,5 +130,11 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		-- configure terraform server with plugin
+		lspconfig.terraformls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
 	end,
 }

@@ -19,6 +19,8 @@ return {
 				"csharp_ls", -- c# language server
 				"rust_analyzer", -- rust language server
 				"prismals", -- prisma language server
+				"terraformls", -- terraform language server
+				"yamlls", -- yaml language server
 			},
 			handlers = {
 				csharp_ls = function()

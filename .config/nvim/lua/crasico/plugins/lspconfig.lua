@@ -25,7 +25,6 @@ return {
 
 			opts.desc = "Goto type definitions"
 			keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-
 			opts.desc = "See available code actions"
 			keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 

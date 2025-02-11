@@ -108,8 +108,9 @@ export EDITOR='nvim'
 export DOTNET_ENVIRONMENT='Development'
 export ASPNETCORE_ENVIRONMENT='Development'
 
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/CRasico/.rd/bin:$PATH"
+export PATH="/Users/crasico/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -119,3 +120,5 @@ alias python="$(pyenv which python)"
 
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+alias excalidraw='open -a "Excalidraw"'

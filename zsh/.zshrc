@@ -113,8 +113,8 @@ export ASPNETCORE_ENVIRONMENT='Development'
 export PATH="/Users/crasico/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
 
 alias python="$(pyenv which python)"
 

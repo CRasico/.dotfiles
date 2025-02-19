@@ -7,8 +7,7 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local on_attach = function(client, bufnr)
-			local keymap = vim.keymap -- for conciseness
-			local opts = { noremap = true, silent = true }
+			local keymap = vim.keymap -- for conciseness local opts = { noremap = true, silent = true }
 			opts.buffer = bufnr
 
 			opts.desc = "Show LSP references"
@@ -132,6 +131,11 @@ return {
 
 		-- configure terraform server with plugin
 		lspconfig.terraformls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		lspconfig.sqls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})

@@ -121,3 +121,15 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 alias excalidraw='open -a "Excalidraw"'
+
+alias get_local_credentials="sh ~/git/scripts/get-local-credentials.sh"
+
+# Configure for Bedrock with Claude 3.7 Sonnet
+export CLAUDE_CODE_USE_BEDROCK=1
+export ANTHROPIC_MODEL='us.anthropic.claude-3-7-sonnet-20250219-v1:0'
+
+# Control prompt caching - set to 1 to disable (see note below)
+export DISABLE_PROMPT_CACHING=1
+
+# Configure alias issue generator
+alias issue-generator='npx ~/git/issue-generator-agent'

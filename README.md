@@ -1,30 +1,77 @@
-# .dotfiles
+# Dotfiles
 
-This is my personal collection of dotfiles. They are managed directly via a [installation script](./install.sh) and will automatically symlink to the root `~` directory.
+## Overview
 
-It will also go out and fetch the below resources and install them on your system if they aren't already installed on your system.
+**Welcome to my personal collection of DOT Files**
 
-## How To Utilize
+These dotfiles contain my personal configuration for various tools and systems, including:
 
-In order to install, ensure to download or clone this repository directly to the root directory `~`
+- Ghostty (Terminal emulator)
+- Neovim (Text editor)
+- Zsh (Shell)
+- TMUX (Terminal Multiplexer)
 
-From there utilizing bash run the installation script in order to setup your configuration 
+## Prerequisites
 
-## Managed Configurations
+### System Requirements
 
-Below are the various set of applications that will be managed and installed via the `.dotfiles/install.sh` script:
+- macOS (tested on latest version)
+- Homebrew package manager
 
-- Brew: 
-    - Installs Brew Directly via the raw installation script
-- Git:
-    - Utilizes Brew installed above in order to install github
-- ZSH:
-    - Installs and configures ZSH 
-    - Links the root dotfiles ZSH profile configuration with the root user
-- TMUX:
-    - Installs and configures TMUX
-- NEOVIM
-    - Installs and configures NEOVIM
-    - Will automatically create a `~/.config` folder if one is not already configured
-    - Creates and links the neovim `init.vim` 
-    - Installs all vim plugins currently installed in the vim initialization script
+## Setup Instructions
+
+### 1. Install Homebrew
+
+If you haven't already installed Homebrew, run:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 2. Install Required Tools
+
+```bash
+# Terminal Emulator
+brew install --cask ghostty
+
+# Neovim
+brew install neovim
+
+# Zsh and Oh My Zsh (optional but recommended)
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+### 3. Clone Dotfiles Repository
+
+```bash
+git clone https://github.com/CRasico/dotfiles.git ~/.dotfiles
+```
+
+### 4. Symlink Configuration Files
+
+```bash
+# Initialize Folders
+mkdir -p ~/.config
+
+# Zsh Configuration
+ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+
+# Neovim Configuration
+ln -s ~/.dotfiles/nvim ~/.config
+
+# Ghostty Configuration
+ln -s ~/.dotfiles/ghostty ~/.config
+
+
+#TMUX Configuration
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
+```
+
+#### TMUX Assistance
+
+Just as a friendly reminder you'll need to run the TMUX installation command to ensure TMUX is working appropriately.
+
+## Customization
+
+Feel free to fork this repository and customize the configurations to suit your personal workflow.

@@ -1,3 +1,5 @@
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -124,12 +126,22 @@ alias excalidraw='open -a "Excalidraw"'
 
 alias get_local_credentials="sh ~/git/scripts/get-local-credentials.sh"
 
-# Configure for Bedrock with Claude 3.7 Sonnet
-export CLAUDE_CODE_USE_BEDROCK=1
-export ANTHROPIC_MODEL='us.anthropic.claude-3-7-sonnet-20250219-v1:0'
+# Node Extra Certificates
+export NODE_EXTRA_CA_CERTS="$HOME/.certs/qlcerts.pem"
 
-# Control prompt caching - set to 1 to disable (see note below)
-export DISABLE_PROMPT_CACHING=1
+# Python Extra Certificates
+export SSL_CERT_FILE="$HOME/.certs/qlcerts.pem"
+export REQUESTS_CA_BUNDLE="$HOME/.certs/qlcerts.pem"
+
+# Docker Extra Certificates
+export CURL_CA_BUNDLE="$HOME/.certs/qlcerts.pem"
 
 # Configure alias issue generator
 alias issue-generator='npx ~/git/issue-generator-agent'
+
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

@@ -2,7 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.clipboard = "unnamedplus"
-vim.o.wrap = false
+vim.o.wrap = true
 
 -- other options
 local opt = vim.opt

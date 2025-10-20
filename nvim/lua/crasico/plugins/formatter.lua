@@ -10,7 +10,7 @@ return {
 		local mason_null_ls = require("mason-null-ls")
 
 		mason_null_ls.setup({
-			ensure_installed = { "stylua", "csharpier", "gofumpt" },
+			ensure_installed = { "stylua", "csharpier", "gofumpt", "prettier" },
 			handlers = {},
 		})
 
@@ -20,6 +20,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.csharpier,
 				null_ls.builtins.formatting.gofmt,
+				null_ls.builtins.formatting.prettier,
 			},
 			-- Add command to run auto formatting for any supported buffers
 			on_attach = function(client, bufnr)

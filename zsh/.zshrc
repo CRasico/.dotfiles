@@ -124,21 +124,6 @@ export NVM_DIR="$HOME/.nvm"
 
 alias excalidraw='open -a "Excalidraw"'
 
-alias get_local_credentials="sh ~/git/scripts/get-local-credentials.sh"
-
-# Node Extra Certificates
-export NODE_EXTRA_CA_CERTS="$HOME/.certs/qlcerts.pem"
-
-# Python Extra Certificates
-export SSL_CERT_FILE="$HOME/.certs/qlcerts.pem"
-export REQUESTS_CA_BUNDLE="$HOME/.certs/qlcerts.pem"
-
-# Docker Extra Certificates
-export CURL_CA_BUNDLE="$HOME/.certs/qlcerts.pem"
-
-# Configure alias issue generator
-alias issue-generator='npx ~/git/issue-generator-agent'
-
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 
@@ -148,3 +133,7 @@ source <(ng completion script)
 
 # Go Bindings
 export PATH=$PATH:~/go/bin
+
+if [ -f ~/.zshrc_work ]; then 
+    source ~/.zshrc_work
+fi 

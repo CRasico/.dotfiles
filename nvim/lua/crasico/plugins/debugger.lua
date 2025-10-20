@@ -5,24 +5,25 @@ return {
 		"mfussenegger/nvim-dap",
 		"nvim-neotest/nvim-nio",
 		"leoluz/nvim-dap-go",
+		"jay-babu/mason-nvim-dap.nvim",
 	},
 	config = function()
 		local keymap = vim.keymap
 		local dap = require("dap")
 		local dapui = require("dapui")
-		-- local dapgo = require("dap-go") --
+		local mason_nvimdap = require("mason-nvim-dap")
 
 		-- dap logs temporary
 		dap.set_log_level("TRACE")
 
 		dapui.setup()
 		mason_nvimdap.setup({
-		    ensure_installed = { "js-debug-adapter", "node2" },
-		    handlers = {
-			function(config)
-			    mason_nvimdap.default_setup(config)
-			end,
-		    },
+			ensure_installed = { "js-debug-adapter", "node2" },
+			handlers = {
+				function(config)
+					mason_nvimdap.default_setup(config)
+				end,
+			},
 		})
 		-- dapgo.setup() --
 
@@ -57,13 +58,13 @@ return {
 		keymap.set("n", "<leader>du", dap.step_out, { desc = "Debug Step Out" })
 		keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Debug Toggle Breakpoint" })
 		keymap.set("n", "<leader>dB", function()
-		    dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end, { desc = "Debug Set Conditional Breakpoint" })
 		keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Debug Open REPL" })
 		keymap.set("n", "<leader>dl", dap.run_last, { desc = "Debug Run Last" })
 		keymap.set("n", "<leader>ds", function()
-		    dap.close()
-		    dapui.close()
+			dap.close()
+			dapui.close()
 		end, { desc = "Stop Debugging" })
 
 		dap.adapters.delve = function(callback, config)
@@ -112,32 +113,32 @@ return {
 		}
 
 		dap.configurations.typescript = {
-		    {
-			type = "node2",
-			request = "launch",
-			name = "Launch file",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-			protocol = "inspector",
-			console = "integratedTerminal",
-			outFiles = { "${workspaceFolder}/dist/**/*.js" },
-			runtimeExecutable = "node",
-			runtimeArgs = { "--loader", "ts-node/esm" },
-		    },
-		    {
-			type = "node2",
-			request = "attach",
-			name = "Attach to Port",
-			port = 9229,
-			localRoot = "${workspaceFolder}",
-			remoteRoot = "${workspaceFolder}",
-			sourceMaps = true,
-			protocol = "inspector",
-			skipFiles = { "<node_internals>/**/*.js" },
-		    },
+			{
+				type = "node2",
+				request = "launch",
+				name = "Launch file",
+				program = "${file}",
+				cwd = "${workspaceFolder}",
+				sourceMaps = true,
+				protocol = "inspector",
+				console = "integratedTerminal",
+				outFiles = { "${workspaceFolder}/dist/**/*.js" },
+				runtimeExecutable = "node",
+				runtimeArgs = { "--loader", "ts-node/esm" },
+			},
+			{
+				type = "node2",
+				request = "attach",
+				name = "Attach to Port",
+				port = 9229,
+				localRoot = "${workspaceFolder}",
+				remoteRoot = "${workspaceFolder}",
+				sourceMaps = true,
+				protocol = "inspector",
+				skipFiles = { "<node_internals>/**/*.js" },
+			},
 		}
 
-        	dap.configurations.javascript = dap.configurations.typescript
-	end
+		dap.configurations.javascript = dap.configurations.typescript
+	end,
 }

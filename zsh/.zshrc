@@ -145,3 +145,6 @@ alias issue-generator='npx ~/git/issue-generator-agent'
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Go Bindings
+export PATH=$PATH:~/go/bin

@@ -124,10 +124,6 @@ export NVM_DIR="$HOME/.nvm"
 
 alias excalidraw='open -a "Excalidraw"'
 
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
-
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
@@ -137,3 +133,6 @@ export PATH=$PATH:~/go/bin
 if [ -f ~/.zshrc_work ]; then 
     source ~/.zshrc_work
 fi 
+export PATH="$HOME/.local/bin:$PATH"
+
+alias ghidra='open -a /usr/local/bin/ghidraRun'

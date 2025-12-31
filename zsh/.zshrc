@@ -119,13 +119,16 @@ export PATH="/Users/crasico/.rd/bin:$PATH"
 # eval "$(pyenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completionalias 
 
-alias excalidraw='open -a "Excalidraw"'
+# Dotnet Tools
+export PATH="$PATH:/Users/crasico/.dotnet/tools"
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+if [[ -x $(which ng) ]]; then
+    source <(ng completion script)
+fi
 
 # Go Bindings
 export PATH=$PATH:~/go/bin
@@ -133,6 +136,10 @@ export PATH=$PATH:~/go/bin
 if [ -f ~/.zshrc_work ]; then 
     source ~/.zshrc_work
 fi 
+
 export PATH="$HOME/.local/bin:$PATH"
 
+# Alisases
+alias excalidraw='open -a "Excalidraw"'
 alias ghidra='open -a /usr/local/bin/ghidraRun'
+

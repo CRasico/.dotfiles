@@ -125,11 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 # Dotnet Tools
 export PATH="$PATH:/Users/crasico/.dotnet/tools"
 
-# Load Angular CLI autocompletion.
-if [[ -x $(which ng) ]]; then
-    source <(ng completion script)
-fi
-
 # Go Bindings
 export PATH=$PATH:~/go/bin
 

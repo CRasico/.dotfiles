@@ -137,3 +137,4 @@ export PATH="$HOME/.local/bin:$PATH"
 # Alisases
 alias excalidraw='open -a "Excalidraw"'
 alias ghidra='open -a /usr/local/bin/ghidraRun'
+

@@ -21,6 +21,7 @@ return {
 				null_ls.builtins.formatting.csharpier,
 				null_ls.builtins.formatting.gofmt,
 				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.rustfmt,
 			},
 			-- Add command to run auto formatting for any supported buffers
 			on_attach = function(client, bufnr)

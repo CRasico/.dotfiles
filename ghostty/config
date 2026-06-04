@@ -1,2 +1,3 @@
 theme=Everforest Dark Hard
+font-family=DejaVu Sans Mono for Powerline
 keybind = shift+enter=text:\x1b\r
